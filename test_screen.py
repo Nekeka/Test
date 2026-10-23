@@ -7,7 +7,8 @@ from PyQt5.QtWidgets import (
 
 from PyQt5.QtCore import Qt
 
-from settings import *
+
+
 
 class TestScreen(QWidget):
     def __init__(self):
@@ -15,26 +16,21 @@ class TestScreen(QWidget):
 
         self.set_appear()
         self.initUI()
-        self.connects()
+
         self.show()
         
     def set_appear(self):
         self.resize(1280,720)
-        self.setWindowTitle("Тестування")
+        self.setWindowTitle("Тест")
 
 
 
     def initUI(self):
-       pass
-        
+        self.lb_text = QLabel("ТЕСТ")
+        self.v_main = QVBoxLayout()
+        self.v_main.addWidget(self.lb_text)
 
-
-    def connects(self):
-        pass
-
-    def click_next(self):
-        pass
-
+        self.setLayout(self.v_main)
 
 
 

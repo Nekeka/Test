@@ -1,9 +1,8 @@
 
 
-from PyQt5.QtWidgets import QApplication,QWidget
+from PyQt5.QtWidgets import QApplication
 
 from screen_welcome import WelcomeScreen
-from test_screen import TestScreen
 
 app = QApplication([])
 

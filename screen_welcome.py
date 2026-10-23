@@ -6,8 +6,7 @@ from PyQt5.QtWidgets import (
 )
 
 from PyQt5.QtCore import Qt
-
-from test_screen import TestScreen ## ПІДКЛЮЧАЄТЬСЯ ДРУГИЙ ЕКРАН
+from test_screen import TestScreen
 
 from settings import *
 
@@ -18,7 +17,9 @@ class WelcomeScreen(QWidget):
         self.set_appear()
         self.initUI()
         self.connects()
+
         self.show()
+
         
     def set_appear(self):
         self.resize(1280,720)
@@ -42,13 +43,13 @@ class WelcomeScreen(QWidget):
 
         self.setLayout(self.v_main)
 
-
     def connects(self):
         self.btn_start.clicked.connect(self.next_click)
 
     def next_click(self):
         self.hide()
         self.test_screen = TestScreen()
+
 
 
 
