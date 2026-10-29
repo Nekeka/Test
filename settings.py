@@ -11,3 +11,34 @@ TEST_INFO_TEXT = """Ця програма дозволить вам за доп�
 """
 
 # commit - збереження змін в проекті, з повідомленням 
+
+
+TIMER_FOR_FIRST_TEST = 15
+
+
+btn_style = """
+            QPushButton {
+                background-color: #3498db;
+                color: white;
+                font-size: 16px;
+                font-family: "Segoe UI", Arial, sans-serif;
+                border-style: solid;
+                border-width: 2px;
+                border-color: #2980b9;
+                border-radius: 8px;
+                padding: 10px 20px;
+                min-width: 120px;
+            }
+            
+            QPushButton:hover {
+                background-color: #2980b9;
+                border-color: #1f618d;
+            }
+            
+            QPushButton:pressed {
+                background-color: #1f618d;
+                border-color: #154360;
+                padding-left: 12px;
+                padding-top: 12px;
+            }
+        """

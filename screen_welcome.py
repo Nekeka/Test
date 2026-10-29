@@ -16,7 +16,7 @@ class WelcomeScreen(QWidget):
 
         self.set_appear()
         self.initUI()
-        self.connects()
+        # self.connects()
 
         self.show()
 
@@ -31,7 +31,7 @@ class WelcomeScreen(QWidget):
         self.lb_text = QLabel("Ласкаво просимо до програми визначення стану здоров'я!")
         self.lb_text2 = QLabel(TEST_INFO_TEXT)
         self.btn_start = QPushButton("Почати!")
-
+        self.btn_start.setStyleSheet(btn_style) # НАКЛАСТИ СТИЛІ
         self.v_main = QVBoxLayout()
         self.v_main.addWidget(self.lb_text, alignment=Qt.AlignmentFlag.AlignCenter)
         self.v_main2 = QVBoxLayout()
