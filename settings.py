@@ -41,4 +41,8 @@ btn_style = """
                 padding-left: 12px;
                 padding-top: 12px;
             }
+
+            QRadioButton {
+            background-color: #1f618d;
+            }
         """
