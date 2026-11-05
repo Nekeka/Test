@@ -10,25 +10,25 @@ from PyQt5.QtCore import Qt, QTimer
 
 from settings import *
 
-
+from result_screen import ResultScreen
 class TestScreen(QWidget):
     def __init__(self):
-            super().__init__()
+        super().__init__()
 
 
-            self.counter = TIMER_FOR_FIRST_TEST # рахунок
-            self.timer = QTimer(self)
-    
-            self.set_appear()
+        self.counter = TIMER_FOR_FIRST_TEST # рахунок
+        self.timer = QTimer(self)# таймер
 
-            self.initUI()
+        self.set_appear()
 
-            self.connects()
-    
+        self.initUI()
+
+        self.connects()
 
 
-            self.show()
-    
+
+        self.show()
+
             
     def set_appear(self):
         self.resize(720,720)
@@ -42,15 +42,15 @@ class TestScreen(QWidget):
         self.lb_timer.setStyleSheet("font-size: 45px;") # НАКЛАСТИ СТИЛІ
 
         lb_name = QLabel("введіть ПІБ")
-        le_name = QLineEdit()
-        le_name.setPlaceholderText("ПІБ")
+        self.le_name = QLineEdit()
+        self.le_name.setPlaceholderText("ПІБ")
 
         lb_age = QLabel("Повних років:")
-        le_age = QLineEdit()
-        le_age.setPlaceholderText("введіть вік (число)")
+        self.le_age = QLineEdit()
+        self.le_age.setPlaceholderText("введіть вік (число)")
 
         self.btn_start_first_test = QPushButton("Почати перший тест")
-  
+        self.btn_next = QPushButton("Прововжити")
 
         V_main = QVBoxLayout()
 
@@ -63,15 +63,16 @@ class TestScreen(QWidget):
 
 
         h_row1.addWidget(lb_name)
-        h_row1.addWidget(le_name)
+        h_row1.addWidget(self.le_name)
 
         h_row2.addWidget(lb_age)
-        h_row2.addWidget(le_age)
+        h_row2.addWidget(self.le_age)
 
         V_main.addLayout(h_upper)
         V_main.addLayout(h_row1)
         V_main.addLayout(h_row2)
-        V_main.addWidget(self.btn_start_first_test)
+        V_main.addWidget(self.btn_start_first_test, alignment=Qt.AlignmentFlag.AlignCenter)
+        V_main.addWidget(self.btn_next)
 
 
         self.setLayout(V_main)
@@ -80,12 +81,18 @@ class TestScreen(QWidget):
     def connects(self):
         self.btn_start_first_test.clicked.connect(self.start_timer)
         self.timer.timeout.connect(self.update_counter)
+        self.btn_next.clicked.connect(self.next_click)
 
     def next_click(self):
+
+        name = self.le_name.text()
+
         self.hide()
+        self.result_screen = ResultScreen(name)
+        
    
     def start_timer(self):
-        self.timer.start(1000)
+        self.timer.start(100)
         
 
     def update_counter(self):
@@ -94,19 +101,13 @@ class TestScreen(QWidget):
 
        if self.counter <= 0:
            self.timer.stop()
+
+
+if __name__ == "__main__":
+    app = QApplication([])
+    t = TestScreen()
+    app.exec()
     
 
 
 
-from PyQt5.QtWidgets import QApplication
-
-
-app = QApplication([])
-
-
-
-test_screen = TestScreen()
-
-
-
-app.exec()

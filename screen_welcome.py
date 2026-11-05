@@ -16,7 +16,7 @@ class WelcomeScreen(QWidget):
 
         self.set_appear()
         self.initUI()
-        # self.connects()
+        self.connects()
 
         self.show()
 
@@ -29,6 +29,8 @@ class WelcomeScreen(QWidget):
 
     def initUI(self):
         self.lb_text = QLabel("Ласкаво просимо до програми визначення стану здоров'я!")
+        self.lb_text.setStyleSheet(''' color: purple;
+  text-align: center;''')
         self.lb_text2 = QLabel(TEST_INFO_TEXT)
         self.btn_start = QPushButton("Почати!")
         self.btn_start.setStyleSheet(btn_style) # НАКЛАСТИ СТИЛІ
